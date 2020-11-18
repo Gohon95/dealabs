@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+{{ article.title }}
+{% endblock %}
+
+{% block body %}
+
+
+
+    <div class="container">
+        <h1>{{ article.title }}</h1>
+
+        <p>
+            {{ article.description }}
+        </p>
+
+        <figure>
+            <img src="{{ article.image }}" alt="{{ article.image }}">
+        </figure>
+        <small class="text-muted">Date de publication {{ article.createdAt |date("d/m/Y") }}</small>
+        <a href="{{ path('comment_new', {'id': article.id }) }}">Ajouter un commentaire<a>
+    </div>
+    {% for comment  in article.comments %}
+      
+      <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4>{{ comment.title }}</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title"><p>{{ comment.description }}</p><small class="text-muted"></small></h1>
+ 
+        <div type="button" class="btn btn-lg btn-block btn-primary">{{ comment.createdAt |date("d/m/Y") }}</div>
+      </div>
+    </div>
+
+    {% endfor %}
+
+{% endblock %}

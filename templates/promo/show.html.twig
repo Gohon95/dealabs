@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+{{ promo.title }}
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <h1>{{ promo.title }}</h1>
+
+        <p>
+            {{ promo.description }}
+        </p>
+
+        <figure>
+            <img src="{{ promo.image }}" alt="{{ promo.image }}">
+        </figure>
+        <small class="text-muted">Date de publication {{ promo.createdAt |date("d/m/Y") }}</small>
+    </div>
+
+{% endblock %}

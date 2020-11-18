@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Add promo {% endblock %}
+
+{% block body %}
+
+<h1>Add promo<h1>
+
+    {{ form_start(form) }}
+
+    <div class="form-group">
+        {{ form_label(form.title) }}
+        {{ form_widget(form.title) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.description) }}
+        {{ form_widget(form.description) }}
+    </div>
+    <button class="btn btn-primary">
+        Ajouter
+        </button>
+    {{ form_end(form) }}
+{% endblock %}
+
